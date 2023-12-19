@@ -11,13 +11,15 @@ export const PixbayAPI = async (input, pageNum) => {
 
     const resultsElement = document.getElementById("results");
     resultsElement.className = `
-      p-8
+      p-6
       border
       border-slate-200
       h-[70vh]
       overflow-y-scroll
       grid
-      grid-cols-2
+      
+      max-sm:grid-cols-1
+      md:grid-cols-2
       gap-2
       lg:grid-cols-3
       `;

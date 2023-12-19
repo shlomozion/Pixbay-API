@@ -5,8 +5,8 @@ import { Modal } from "../modal/Modal.js";
 export const card = (item) => {
   const { tags, webformatURL } = item;
 
-  const element = document.createElement("div");
-  element.className = `
+  const cardElement = document.createElement("div");
+  cardElement.className = `
   flex
   flex-col
   hover:border 
@@ -17,16 +17,19 @@ export const card = (item) => {
   p-2
   group
   hover:bg-slate-200
-  hover:cursor-pointer
-  
   `;
-  element.addEventListener("click", () => {
+  const imageContainer = document.createElement("div");
+  imageContainer.className = "flex justify-center w-full";
+
+  imageContainer.addEventListener("click", () => {
     const modal = Modal(item);
     const [body] = document.getElementsByTagName("body");
     body.appendChild(modal);
     modal.showModal();
   });
-  element.appendChild(image(webformatURL));
-  element.appendChild(badges(tags));
-  return element;
+  imageContainer.appendChild(image(webformatURL));
+  cardElement.appendChild(imageContainer);
+  cardElement.appendChild(badges(tags));
+  cardElement.appendChild(badges("&#9829;"));
+  return cardElement;
 };
