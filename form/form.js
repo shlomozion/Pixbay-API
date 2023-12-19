@@ -13,6 +13,7 @@ export const Form = () => {
   h-16
   rounded
   shadow-xl
+  
   `;
 
   const input = document.createElement("input");
@@ -26,7 +27,7 @@ export const Form = () => {
   shadow-lg
   focus:border-slate-500
   `;
-  input.size = "35";
+  input.size = "30";
   input.type = "search";
 
   const button = document.createElement("button");

@@ -5,6 +5,7 @@ import { MoreBtn } from "./moreBtn/MoreBtn.js";
 await PixbayAPI();
 
 const topBarElement = document.getElementById("topbar");
+topBarElement.className = "p-2 bg-slate-500 text-slate-50 font-bold";
 
 const formObj = Form();
 const { form, input } = formObj;
@@ -14,7 +15,3 @@ formElement.appendChild(form);
 
 const resultsElement = document.getElementById("results");
 resultsElement.after(MoreBtn(input));
-
-const footerElement = document.getElementById("footer");
-footerElement.className = "border border-green-500 fixed bottom-0 w-full h-11";
-footerElement.innerHTML = "footer";

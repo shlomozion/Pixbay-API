@@ -19,7 +19,7 @@ export const card = (item) => {
   hover:bg-slate-200
   `;
   const imageContainer = document.createElement("div");
-  imageContainer.className = "flex justify-center w-full";
+  imageContainer.className = "flex justify-center w-full hover:cursor-pointer";
 
   imageContainer.addEventListener("click", () => {
     const modal = Modal(item);
