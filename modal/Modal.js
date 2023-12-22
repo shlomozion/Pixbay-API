@@ -6,9 +6,15 @@ import { UserImage } from "./UserImage.js";
 export const Modal = (item) => {
   const { tags, webformatURL, user, pageURL, userImageURL, user_id, likes } =
     item;
-
-  const tagComponent = badges(tags);
-  tagComponent.classList.remove("opacity-0");
+  const tagComponent = document.createElement("div");
+  tagComponent.className = "flex gap-1 justify-center";
+  tags.split(",").forEach((string) => {
+    const tagElement = document.createElement("div");
+    tagElement.className =
+      "border shadow-xl font-bold text-slate-600 rounded text-xs py-1 px-3";
+    tagElement.innerHTML = string;
+    tagComponent.appendChild(tagElement);
+  });
 
   const likesBadge = badges(likes);
 
