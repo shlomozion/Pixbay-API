@@ -2,7 +2,7 @@ import { SaveToFavorite } from "../actions/SaveToFavorite.js";
 
 export const LikeBtn = (id) => {
   const btnContainer = document.createElement("div");
-  btnContainer.className = `transition-opacity ease-in-out group-hover:opacity-100 opacity-0 flex w-full flex-wrap gap-1 h-fit justify-end`;
+  btnContainer.className = `transition-opacity ease-in-out group-hover:opacity-100 opacity-0 flex w-full flex-wrap mt-2 h-fit justify-end`;
 
   const favoriteBtn = document.createElement("div");
   favoriteBtn.addEventListener("click", () => {

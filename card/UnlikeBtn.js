@@ -4,7 +4,7 @@ export const UnlikeBtn = (item) => {
   const { id } = item;
   const picId = id;
   const btnContainer = document.createElement("div");
-  btnContainer.className = `transition-opacity ease-in-out group-hover:opacity-100 opacity-0 flex w-full flex-wrap gap-1 h-fit justify-end`;
+  btnContainer.className = `transition-opacity ease-in-out group-hover:opacity-100 opacity-0 flex w-full flex-wrap mt-2 h-fit justify-end`;
   const btn = document.createElement("div");
 
   btn.addEventListener("click", () => {

@@ -5,7 +5,7 @@ export const Badges = (string) => {
 
   if (String(string).includes(",")) {
     const tagsArr = string.split(",");
-    badgeContainer.className = `transition-opacity ease-in-out group-hover:opacity-100 opacity-0 flex w-full flex-wrap max-sm:flex-col justify-center  items-center gap-1 h-fit `;
+    badgeContainer.className = `transition-opacity ease-in-out group-hover:opacity-100 opacity-0 flex w-full flex-wrap justify-center items-center gap-1 h-fit`;
 
     tagsArr.forEach((tag) => {
       const filterBadge = document.createElement("div");

@@ -9,7 +9,7 @@ export const Modal = (item) => {
     item;
 
   const dialog = document.createElement("dialog");
-  dialog.className = "rounded-xl bg-slate-50 shadow-xl shadow-xl";
+  dialog.className = "rounded-xl bg-slate-50";
 
   const closeBtn = CloseBtn();
   closeBtn.addEventListener("click", () => {
@@ -17,13 +17,13 @@ export const Modal = (item) => {
   });
 
   const container = document.createElement("div");
-  container.className = "flex ";
+  container.className = "md:flex";
 
   const imageRow = document.createElement("div");
   imageRow.className = "h-full";
 
   const dataRow = document.createElement("div");
-  dataRow.className = "flex flex-col gap-6 justify-center";
+  dataRow.className = "flex flex-col gap-6 justify-center md:gap-12 p-2";
 
   const userDiv = document.createElement("div");
   userDiv.className =
@@ -43,9 +43,10 @@ export const Modal = (item) => {
 
   const likesBadge = Badges(likes);
 
+  imageRow.appendChild(closeBtn);
   imageRow.appendChild(Image(webformatURL));
-  dataRow.appendChild(closeBtn);
   dataRow.appendChild(userDiv);
+  dataRow.appendChild(likesBadge);
   dataRow.appendChild(likesBadge);
   dataRow.appendChild(tagComponent);
   dataRow.appendChild(LinkToPixbaySite(pageURL));

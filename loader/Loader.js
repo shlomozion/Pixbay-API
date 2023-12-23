@@ -1,7 +1,7 @@
 export const Loader = () => {
   const elementContainer = document.createElement("div");
   elementContainer.className =
-    "flex space-x-2 justify-center items-center bg-white h-screen w-full";
+    "flex space-x-2 justify-center items-center bg-white h-[68vh] w-full";
 
   const dot1 = document.createElement("div");
   dot1.className =

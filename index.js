@@ -17,12 +17,14 @@ formElement.after(
   NavBtn(
     `Favorites &#9829;`,
     "border bg-slate-400 p-2 mx-1 font-bold hover:underline",
-    GetFavorites
+    async () => await GetFavorites()
   )
 );
 formElement.after(
-  NavBtn("Home", "border bg-slate-400 p-2 mx-1 font-bold hover:underline", () =>
-    PixbayAPI("", 1, "")
+  NavBtn(
+    "Home",
+    "border bg-slate-400 p-2 mx-1 font-bold hover:underline",
+    async () => await PixbayAPI("", 1, "")
   )
 );
 

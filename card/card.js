@@ -8,7 +8,7 @@ export const Card = (item) => {
   const { tags, webformatURL, id } = item;
 
   const cardElement = document.createElement("div");
-  cardElement.className = `flex flex-col hover:border hover:border-slate-300 hover:rounded-xl hover:shadow-xl gap-2 p-2 group hover:bg-slate-200`;
+  cardElement.className = `h-fit flex flex-col hover:border hover:border-slate-300 hover:rounded-xl hover:shadow-xl gap-2 p-2 group hover:bg-slate-200`;
   cardElement.id = id;
 
   const imageContainer = document.createElement("div");
