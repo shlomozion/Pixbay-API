@@ -1,4 +1,4 @@
-import { GetFavorites } from "../actions/GetFavorites.js";
+// import { GetFavorites } from "../actions/GetFavorites.js";
 
 export const UnlikeBtn = (item) => {
   const { id } = item;
@@ -15,7 +15,7 @@ export const UnlikeBtn = (item) => {
 
     localStorage.clear();
     localStorage.setItem("pic-id", newFavorites);
-    GetFavorites();
+    // GetFavorites();
   });
   btn.innerHTML = "Remove from favorites";
   btn.className = ` hover:cursor-pointer hover:bg-white hover:text-red-500 bg-red-500  px-3 max-sm:py-2 py-1	text-sm text-white shadow-md rounded font-bold flex text-center`;
