@@ -1,8 +1,6 @@
 import { PixbayAPI } from "../actions/PixbayAPI.js";
 
 export const Form = () => {
-  const results = document.getElementById("results");
-
   const form = document.createElement("form");
   form.className = `border flex justify-center items-center gap-4 h-16 rounded shadow-xl`;
 
@@ -19,7 +17,6 @@ export const Form = () => {
   button.addEventListener("click", async (e) => {
     e.preventDefault();
     try {
-      results.innerHTML = "";
       await PixbayAPI(input.value, "");
     } catch (error) {
       console.log(error);

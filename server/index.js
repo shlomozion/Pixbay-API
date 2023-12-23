@@ -8,11 +8,12 @@ app.use(bodyParser.json());
 require("dotenv").config();
 
 app.post("/", (req, res) => {
-  const { input, pageNum } = req.body;
+  const { input, pageNum, id } = req.body;
+  // console.log("file: index.js:12 ~ app.post ~ id:", id);
   try {
     fetch(`https://pixabay.com/api/?key=41151122-f8eb0ebcdf4975643bb0bf190&q=${
       input ? encodeURIComponent(input) : ""
-    }&page=${pageNum}&orientation=vertical&per_page=20
+    }&page=${pageNum}&orientation=vertical&id=${id ? id : ""}
     `)
       .then((res) => res.json())
       .then((data) => res.send(data));

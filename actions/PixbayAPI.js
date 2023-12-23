@@ -1,7 +1,7 @@
 import { card } from "../card/card.js";
 import { Loader } from "../loader/Loader.js";
 
-export const PixbayAPI = async (input, pageNum) => {
+export const PixbayAPI = async (input, pageNum, id) => {
   const loader = Loader();
   try {
     // const res =
@@ -19,13 +19,12 @@ export const PixbayAPI = async (input, pageNum) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ input, pageNum }),
+      body: JSON.stringify({ input, pageNum, id }),
     });
 
     const data = await res.json();
-    if (data) {
-      resultsElement.removeChild(loader);
-
+    if (data.hits.length > 1) {
+      resultsElement.innerHTML = "";
       resultsElement.className = `p-4 border border-slate-200 h-[68vh] overflow-y-scroll grid max-sm:grid-cols-1 md:grid-cols-2 gap-2 lg:grid-cols-3`;
       data.hits.map((item) => resultsElement.appendChild(card(item)));
       resultsElement.scrollTo({
@@ -34,6 +33,8 @@ export const PixbayAPI = async (input, pageNum) => {
         behavior: "instant",
       });
       return resultsElement;
+    } else {
+      return data.hits;
     }
   } catch (error) {
     console.log(error);
