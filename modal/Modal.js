@@ -33,6 +33,7 @@ export const Modal = (item) => {
 
   const tagComponent = document.createElement("div");
   tagComponent.className = "flex gap-1 justify-center";
+
   tags.split(",").forEach((string) => {
     const tagElement = document.createElement("div");
     tagElement.className =
@@ -46,7 +47,6 @@ export const Modal = (item) => {
   imageRow.appendChild(closeBtn);
   imageRow.appendChild(Image(webformatURL));
   dataRow.appendChild(userDiv);
-  dataRow.appendChild(likesBadge);
   dataRow.appendChild(likesBadge);
   dataRow.appendChild(tagComponent);
   dataRow.appendChild(LinkToPixbaySite(pageURL));
