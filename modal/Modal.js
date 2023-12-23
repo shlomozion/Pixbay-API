@@ -1,11 +1,35 @@
-import { badges } from "../card/badges.js";
-import { image } from "../card/image.js";
 import { CloseBtn } from "./CloseBtn.js";
-import { LinkToPixbaySite } from "./LinkToPixbaySite.js";
+import { Image } from "../card/Image.js";
 import { UserImage } from "./UserImage.js";
+import { Badges } from "../card/Badges.js";
+import { LinkToPixbaySite } from "./LinkToPixbaySite.js";
+
 export const Modal = (item) => {
   const { tags, webformatURL, user, pageURL, userImageURL, user_id, likes } =
     item;
+
+  const dialog = document.createElement("dialog");
+  dialog.className = "rounded-xl bg-slate-50 shadow-xl shadow-xl";
+
+  const closeBtn = CloseBtn();
+  closeBtn.addEventListener("click", () => {
+    dialog.close();
+  });
+
+  const container = document.createElement("div");
+  container.className = "flex ";
+
+  const imageRow = document.createElement("div");
+  imageRow.className = "h-full";
+
+  const dataRow = document.createElement("div");
+  dataRow.className = "flex flex-col gap-6 justify-center";
+
+  const userDiv = document.createElement("div");
+  userDiv.className =
+    "font-bold whitespace-nowrap flex flex-col  gap-1 p-2 items-center mx-6 bg-slate-100 rounded-2xl shadow-xl";
+  userDiv.appendChild(UserImage(userImageURL, user, user_id));
+  userDiv.append(user);
 
   const tagComponent = document.createElement("div");
   tagComponent.className = "flex gap-1 justify-center";
@@ -17,38 +41,16 @@ export const Modal = (item) => {
     tagComponent.appendChild(tagElement);
   });
 
-  const likesBadge = badges(likes);
+  const likesBadge = Badges(likes);
 
-  const dialog = document.createElement("dialog");
-  dialog.className = "rounded-xl bg-slate-50 shadow-xl  shadow-xl";
-
-  const container = document.createElement("div");
-  container.className = "flex ";
-
-  const closeBtn = CloseBtn();
-
-  closeBtn.addEventListener("click", () => {
-    dialog.close();
-  });
-
-  const dataRow = document.createElement("div");
-  const imageRow = document.createElement("div");
-  const userDiv = document.createElement("div");
-  userDiv.className =
-    "font-bold whitespace-nowrap flex flex-col  gap-1 p-2 items-center mx-6 bg-slate-100 rounded-2xl shadow-xl";
-  userDiv.appendChild(UserImage(userImageURL, user, user_id));
-  userDiv.append(user);
-  dataRow.className = "flex flex-col gap-6 justify-center";
-  imageRow.className = "h-full";
-
-  container.appendChild(imageRow);
+  imageRow.appendChild(Image(webformatURL));
   dataRow.appendChild(closeBtn);
   dataRow.appendChild(userDiv);
-  dataRow.appendChild(tagComponent);
   dataRow.appendChild(likesBadge);
+  dataRow.appendChild(tagComponent);
   dataRow.appendChild(LinkToPixbaySite(pageURL));
+  container.appendChild(imageRow);
   container.appendChild(dataRow);
-  imageRow.appendChild(image(webformatURL));
   dialog.appendChild(container);
   return dialog;
 };

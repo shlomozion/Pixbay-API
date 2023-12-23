@@ -6,5 +6,4 @@ export const SaveToFavorite = (id) => {
     idArr = [idArr, id];
     localStorage.setItem("pic-id", idArr);
   }
-  return;
 };

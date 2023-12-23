@@ -22,6 +22,7 @@ export const Form = () => {
       console.log(error);
     }
   });
+
   form.appendChild(input);
   form.appendChild(button);
 

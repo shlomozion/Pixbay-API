@@ -1,4 +1,4 @@
-import { card } from "../card/card.js";
+import { Card } from "../card/Card.js";
 import { PixbayAPI } from "./PixbayAPI.js";
 
 export const GetFavorites = async () => {
@@ -17,12 +17,12 @@ export const GetFavorites = async () => {
     const dataArray = await Promise.all(promises);
     return dataArray;
   };
+
   const arr = await getFavData();
 
   resultsElement.className = "";
   resultsElement.innerHTML = "";
   arr.flat().forEach((item) => {
-    resultsElement.appendChild(card(item));
+    resultsElement.appendChild(Card(item));
   });
-  return favoriteArr;
 };

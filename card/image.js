@@ -1,4 +1,4 @@
-export const image = (webformatURL) => {
+export const Image = (webformatURL) => {
   const element = document.createElement("img");
   element.src = webformatURL;
   element.alt = "image";

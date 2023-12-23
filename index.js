@@ -13,6 +13,7 @@ const { form, input } = formObj;
 const formElement = document.getElementById("form");
 formElement.appendChild(form);
 formElement.after(FavoritesBtn());
+formElement.after(FavoritesBtn());
 
 const resultsElement = document.getElementById("results");
 resultsElement.after(MoreBtn(input));
